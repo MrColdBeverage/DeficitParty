@@ -116,20 +116,20 @@ for x in range(0,data_length):
             fig.circle(x=revenue_df["Year"][x],
                        y=revenue_df["receipts_gdp"][x],
                        size=10,
-                       fill_color='red',
+                       fill_color='red', muted_alpha=0.15,
                        legend_label = 'Republican control')
       elif (revenue_df["DemHouseSeats"][x] > 217 and
             revenue_df["DemWhitehouse"][x] == 1):
             fig.circle(x=revenue_df["Year"][x],
                        y=revenue_df["receipts_gdp"][x],
                        size=10,
-                       fill_color='blue',
+                       fill_color='blue', muted_alpha=0.15,
                        legend_label = 'Democrat control')
       else:
             fig.circle(x=revenue_df["Year"][x],
                        y=revenue_df["receipts_gdp"][x],
                        size=10,
-                       fill_color='green',
+                       fill_color='green', muted_alpha=0.15,
                        legend_label = 'Split control')
 
 # Add information on hover
@@ -153,6 +153,9 @@ fig.legend.border_line_width = 2
 fig.legend.border_line_color = 'black'
 fig.legend.border_line_alpha = 1
 fig.legend.label_text_font_size = '4mm'
+
+# Set legend muting click policy
+fig.legend.click_policy = 'mute'
 
 #Add notes below image
 note_text_1 = ('Note: Republican control in a given year is defined as the ' +
