@@ -152,6 +152,7 @@ fig.legend.location = 'bottom_center'
 fig.legend.border_line_width = 2
 fig.legend.border_line_color = 'black'
 fig.legend.border_line_alpha = 1
+fig.legend.label_text_font_size = '4mm'
 
 #Add notes below image
 note_text_1 = ('Note: Republican control in a given year is defined as the ' +
