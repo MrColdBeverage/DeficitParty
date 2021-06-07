@@ -177,7 +177,7 @@ note_text_4 = ('Source: Federal Reserve Economic Data (FRED, FYFRGDA188S), ' +
 caption4 = Title(text=note_text_4, align='left', text_font_size='4mm',
                  text_font_style='italic')
 fig.add_layout(caption4, 'below')
-note_text_5 = ('   Representatives, 1789 to present, https://history.house.gov/' +
+note_text_5 = ('   Representatives, 1789 to present", https://history.house.gov/' +
                'Institution/Party-Divisions/Party-Divisions/, '+
                'Richard W. Evans (@rickecon).')
 caption5 = Title(text=note_text_5, align='left', text_font_size='4mm',
