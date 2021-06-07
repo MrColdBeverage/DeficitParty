@@ -154,21 +154,35 @@ fig.legend.border_line_color = 'black'
 fig.legend.border_line_alpha = 1
 
 #Add notes below image
-words = 'Note: Republican control in a given year is defined as the President being Republican and Republicans holding more than 217 House seats for the majority of that year.'
-caption = Title(text=words,align='left',text_font_size='3mm')
-fig.add_layout(caption,'below')
-words = 'Democrat control is defined as the President being Democrat and Democrats holding more than 217 House seats for the majority of that year. '
-caption = Title(text=words,align='left',text_font_size='3mm')
-fig.add_layout(caption,'below')
-words = 'Split government as defined as one party holding the White House while the other party holds a majority of House seats.'
-caption = Title(text=words,align='left',text_font_size='3mm')
-fig.add_layout(caption,'below')
-words = 'Source: Federal Reserve Economic Data (FRED, FYFRGDA188S), United States House of Representatives'
-caption = Title(text=words,align='center',text_font_size='3mm',text_font_style='italic')
-fig.add_layout(caption,'below')
-words = 'History, Art, & Archives, "Party Divisions of the House of Representatives, 1789 to present, https://history.house.gov/Institution/Party-Divisions/Party-Divisions/, Richard W. Evans (@rickecon)'
-caption = Title(text=words,align='center',text_font_size='3mm',text_font_style='italic')
-fig.add_layout(caption,'below')
+note_text_1 = ('Note: Republican control in a given year is defined as the ' +
+               'President being Republican and Republicans holding more ' +
+               'than 217 House seats for the majority of that year.')
+caption1 = Title(text=note_text_1, align='left', text_font_size='4mm',
+                 text_font_style='italic')
+fig.add_layout(caption1, 'below')
+note_text_2 = ('   Democrat control is defined as the President being ' +
+               'Democrat and Democrats holding more than 217 House seats ' +
+               'for the majority of that year. Split government is')
+caption2 = Title(text=note_text_2, align='left', text_font_size='4mm',
+                 text_font_style='italic')
+fig.add_layout(caption2, 'below')
+note_text_3 = ('   defined as one party holding the White ' +
+               'House while the other party holds a majority of House seats.')
+caption3 = Title(text=note_text_3, align='left', text_font_size='4mm',
+                 text_font_style='italic')
+fig.add_layout(caption3, 'below')
+note_text_4 = ('Source: Federal Reserve Economic Data (FRED, FYFRGDA188S), ' +
+               'United States House of Representatives History, Art, & ' +
+               'Archives, "Party Divisions of the House of')
+caption4 = Title(text=note_text_4, align='left', text_font_size='4mm',
+                 text_font_style='italic')
+fig.add_layout(caption4, 'below')
+note_text_5 = ('   Representatives, 1789 to present, https://history.house.gov/' +
+               'Institution/Party-Divisions/Party-Divisions/, '+
+               'Richard W. Evans (@rickecon).')
+caption5 = Title(text=note_text_5, align='left', text_font_size='4mm',
+                 text_font_style='italic')
+fig.add_layout(caption5, 'below')
 
 #Display the generated figure
 show(fig)
