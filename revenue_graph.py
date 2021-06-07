@@ -55,7 +55,7 @@ receipts_min = revenue_df['receipts_gdp'].min()
 receipts_max = revenue_df['receipts_gdp'].max()
 
 # Output to HTML file titled: "federal_debt_image.html"
-fig_title = ('Federal Receipts as Percent of Gross Domestic Product by ' +
+fig_title = ('U.S. Federal Receipts as Percent of Gross Domestic Product by ' +
              'Party Control: 1929-2020')
 fig_path = os.path.join(images_dir, 'federal_revenues_image.html')
 output_file(fig_path, title=fig_title)
