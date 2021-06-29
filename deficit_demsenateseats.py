@@ -44,12 +44,14 @@ deficit_df = pd.read_csv(party_data_path,
                          skiprows=3)
 #deficit_cds = ColumnDataSource(deficit_df)
 color_list = ['black']*92
-deficit_cds = ColumnDataSource(data=dict( x=deficit_df['DemSenateSeats'], 
+asdf = ColumnDataSource(data=dict( x=deficit_df['DemSenateSeats'], 
                                           y=deficit_df['deficit_gdp'], 
                                           demWhiteHouse=deficit_df['DemWhitehouse'],
                                           demSenateSeats=deficit_df['DemSenateSeats'], 
                                           demHouseSeats=deficit_df['DemHouseSeats'], 
                                           color=color_list))
+deficit_cds = ColumnDataSource(deficit_df)
+deficit_cds.add(data=color_list, name='color')
 
 # Create Variables for min and max values
 data_length = len(deficit_df['Year'])
@@ -112,11 +114,14 @@ for x in range(0,data_length):
       else:
             deficit_cds.data['color'][x]='green'
 
+fig.circle(x=0,y=0,source=deficit_cds,fill_color='red',alpha=0,legend_label="Republican control",name='test')
+fig.circle(x=0,y=0,source=deficit_cds,fill_color='blue',alpha=0,legend_label="Democrat control",name='test')
+
 # Plotting the dots representing party control
 for x in range(0,data_length):
       if(deficit_cds.data['color'][x]=='red'):
-            fig.circle(x='x',
-                       y='y',
+            fig.circle(x='DemSenateSeats',
+                       y='deficit_gdp',
                        size=10,
                        line_width=1,
                        line_color='black',
@@ -126,8 +131,8 @@ for x in range(0,data_length):
                        muted_alpha=0.1,
                        legend_label = 'Republican control')
       elif(deficit_cds.data['color'][x]=='blue'):
-            fig.circle(x='x',
-                       y='y',
+            fig.circle(x='DemSenateSeats',
+                       y='deficit_gdp',
                        size=10,
                        line_width=1,
                        line_color='black',
@@ -137,16 +142,16 @@ for x in range(0,data_length):
                        muted_alpha=0.1,
                        legend_label = 'Democrat control')
       else:
-            fig.circle(x='x',
-                       y='y',
+            fig.circle(x='DemSenateSeats',
+                       y='deficit_gdp',
                        size=10,
                        line_width=1,
                        line_color='black',
                        fill_color='color',
-                       source=deficit_cds,
                        alpha=0.7,
                        muted_alpha=0.1,
-                       legend_label = 'Split control')
+                       legend_label = 'Split control',
+                       source=deficit_cds)
 
 '''
 # Plotting the dots representing party control
@@ -185,8 +190,8 @@ for x in range(0,data_length):
                        legend_label = 'Split control')
 '''
 #Invisible scatter plot to give the hover tool something to register
-fig.scatter('x', 'y', source=deficit_cds, size=20,
-            alpha=0, name='hover_helper')
+#fig.scatter('x', 'y', source=deficit_cds, size=20,
+#            alpha=0, name='hover_helper')
 
 # Add information on hover
 tooltips = [('Year', '@Year'),
@@ -197,7 +202,8 @@ tooltips = [('Year', '@Year'),
             ('Dem. House Seats', '@DemHouseSeats'),
             ('Rep. Senate Seats', '@RepSenateSeats'),
             ('Dem. Senate Seats', '@DemSenateSeats')]
-fig.add_tools(HoverTool(tooltips=tooltips, names=['hover_helper']))
+#fig.add_tools(HoverTool(tooltips=tooltips, names=['hover_helper']))
+fig.add_tools(HoverTool(tooltips=tooltips))
 
 #Turn off scrolling
 fig.toolbar.active_drag = None

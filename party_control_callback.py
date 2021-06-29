@@ -4,12 +4,12 @@ console.log("--Running JS Callback--");
 
 if (button == '0') {
     var source = deficit_cds.data;
-    for (var i=0; i < source.x.length; i++) {
-        if(source.demSenateSeats[i]>50 && source.demHouseSeats[i]>217 && source.demWhiteHouse[i]==1 ) 
+    for (var i=0; i < source.color.length; i++) {
+        if(source.DemSenateSeats[i]>50 && source.DemHouseSeats[i]>217 && source.DemWhitehouse[i]==1 ) 
         { 
             source.color[i]='blue'; 
         }
-        else if(source.demSenateSeats[i]<50 && source.demHouseSeats[i]<217 && source.demWhiteHouse[i]==0)
+        else if(source.DemSenateSeats[i]<50 && source.DemHouseSeats[i]<217 && source.DemWhitehouse[i]==0)
         { 
             source.color[i]='red'; 
         }
@@ -22,12 +22,12 @@ if (button == '0') {
 }
 if (button == '1') {
     var source = deficit_cds.data;
-    for (var i=0; i < source.x.length; i++) {
-        if(source.demSenateSeats[i]>50 && source.demWhiteHouse[i]==1 ) 
+    for (var i=0; i < source.color.length; i++) {
+        if(source.DemSenateSeats[i]>50 && source.DemWhitehouse[i]==1 ) 
         { 
             source.color[i]='blue'; 
         }
-        else if(source.demSenateSeats[i]<50 && source.demWhiteHouse[i]==0)
+        else if(source.DemSenateSeats[i]<50 && source.DemWhitehouse[i]==0)
         { 
             source.color[i]='red'; 
         }
@@ -40,12 +40,12 @@ if (button == '1') {
 }
 if (button == '2') {
     var source = deficit_cds.data;
-    for (var i=0; i < source.x.length; i++) {
-        if(source.demHouseSeats[i]>217 && source.demWhiteHouse[i]==1 ) 
+    for (var i=0; i < source.color.length; i++) {
+        if(source.DemHouseSeats[i]>217 && source.DemWhitehouse[i]==1 ) 
         { 
             source.color[i]='blue'; 
         }
-        else if(source.demHouseSeats[i]<217 &&source.demWhiteHouse[i]==0)
+        else if(source.DemHouseSeats[i]<217 &&source.DemWhitehouse[i]==0)
         { 
             source.color[i]='red'; 
         }
